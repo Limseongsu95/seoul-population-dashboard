@@ -8,3 +8,4 @@ Shapely
 geopandas
 folium
 streamlit-folium
+google-generativeai
