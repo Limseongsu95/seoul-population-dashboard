@@ -1,4 +1,5 @@
 import streamlit as st
+from pymongo import MongoClient
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -59,12 +60,15 @@ components.html("""
 </style>
 """, height=0)
 
-# MongoDB 연결 (개선: @st.cache_resource 사용)
+# MongoDB 연결 (Secrets에서 주소 가져오기)
 @st.cache_resource
 def init_connection():
-    return MongoClient("mongodb://localhost:27017/")
+    # "mongo"와 "host"는 아까 Secrets에 적은 [mongo] host = ... 와 짝꿍입니다.
+    return MongoClient(st.secrets["mongo"]["host"])
 
 client = init_connection()
+
+# DB 이름은 원래 쓰시던 거 그대로 유지!
 db = client["seoul_population_db"]
 
 # Gemini API 설정
