@@ -74,9 +74,9 @@ db = client["seoul_population_db"]
 # Gemini API 설정 (🔴 여기만 수정!)
 try:
     # secrets의 [google] 섹션 아래에 있는 api_key를 가져옵니다.
-    GEMINI_API_KEY = st.secrets["google"]["api_key"]
+    GEMINI_API_KEY = st.secrets["google"]["api_key"] 
     genai.configure(api_key=GEMINI_API_KEY)
-    model = genai.GenerativeModel('gemini-1.5-flash') # 모델명은 1.5-flash나 pro 등 원하시는 걸로 해도 됩니다
+    model = genai.GenerativeModel('gemini-pro') # ✅ 가장 호환성 좋은 모델로 변경
     GEMINI_CONFIGURED = True
 except (KeyError, Exception):
     GEMINI_CONFIGURED = False
