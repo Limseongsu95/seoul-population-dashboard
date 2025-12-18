@@ -76,7 +76,7 @@ try:
     # secrets의 [google] 섹션 아래에 있는 api_key를 가져옵니다.
     GEMINI_API_KEY = st.secrets["google"]["api_key"] 
     genai.configure(api_key=GEMINI_API_KEY)
-    model = genai.GenerativeModel('gemini-pro') # ✅ 가장 호환성 좋은 모델로 변경
+    model = genai.GenerativeModel('gemini-2.5-flash') # ✅ 가장 호환성 좋은 모델로 변경
     GEMINI_CONFIGURED = True
 except (KeyError, Exception):
     GEMINI_CONFIGURED = False
